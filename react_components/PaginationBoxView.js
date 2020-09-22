@@ -296,7 +296,7 @@ export default class PaginationBoxView extends Component {
           continue;
         }
 
-        if (showCenterPage && index === math.round(pageCount/2)) {
+        if (showCenterPage && index === Math.round(pageCount/2)) {
           items.push(createPageView(_index));
           continue;
         }
