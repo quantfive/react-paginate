@@ -35,6 +35,7 @@ export default class PaginationBoxView extends Component {
     extraAriaContext: PropTypes.string,
     ariaLabelBuilder: PropTypes.func,
     eventListener: PropTypes.string,
+    showCenterPage: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -52,6 +53,7 @@ export default class PaginationBoxView extends Component {
     disabledClassName: 'disabled',
     disableInitialCallback: false,
     eventListener: 'onClick',
+    showCenterPage: 'false',
   };
 
   constructor(props) {
@@ -236,6 +238,7 @@ export default class PaginationBoxView extends Component {
       breakLabel,
       breakClassName,
       breakLinkClassName,
+      showCenterPage
     } = this.props;
 
     const { selected } = this.state;
@@ -290,6 +293,11 @@ export default class PaginationBoxView extends Component {
         // part of the pagination).
         if (index >= selected - leftSide && index <= selected + rightSide) {
           items.push(createPageView(index));
+          continue;
+        }
+
+        if (showCenterPage && index === math.round(pageCount/2)) {
+          items.push(createPageView(_index));
           continue;
         }
 
