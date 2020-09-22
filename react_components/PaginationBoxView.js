@@ -53,7 +53,7 @@ export default class PaginationBoxView extends Component {
     disabledClassName: 'disabled',
     disableInitialCallback: false,
     eventListener: 'onClick',
-    showCenterPage: 'false',
+    showCenterPage: false,
   };
 
   constructor(props) {
